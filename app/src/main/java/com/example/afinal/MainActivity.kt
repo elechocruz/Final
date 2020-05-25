@@ -1,6 +1,8 @@
 package com.example.afinal
 
+import android.app.Application
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +13,9 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.afinal.model.PeliculaItem
+import com.example.afinal.room.DBLocal
+import com.example.afinal.room.LocalDao
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
@@ -46,6 +51,7 @@ class MainActivity : AppCompatActivity(){
             etUsername.setText(contents.toString())
         }
     }
+
 
     fun btnLog(view: View) {
         if(File(filesDir,"Username.txt").exists()) {
@@ -123,8 +129,6 @@ class MainActivity : AppCompatActivity(){
         Volley.newRequestQueue(this).add(jsonObjectRequest)
     }
 }
-interface VolleyListener {
-    fun requestFinished(exsitance: Boolean)
-}
+
 
 

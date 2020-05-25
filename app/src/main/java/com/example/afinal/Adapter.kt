@@ -35,7 +35,6 @@ class Adapter(private val dataList: MutableList<PeliculaItem>) : RecyclerView.Ad
         fecha.text = data.ano
         genero.text = "${data.gen1} , ${data.gen2}"
 
-        //Picasso.get().load("https://wspelis.000webhostapp.com/Imagenes/${data.caratula}").into(poster)
         Glide.with(context).load("https://wspelis.000webhostapp.com/Imagenes/${data.caratula}").into(poster)
 
         holder.itemView.setOnClickListener{

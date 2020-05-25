@@ -1,8 +1,10 @@
 package com.example.afinal.model
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-
+@Entity
 data class PeliculaItem(
     @SerializedName("ano")
     val ano: String,
@@ -19,5 +21,5 @@ data class PeliculaItem(
     @SerializedName("sinopsis")
     val sinopsis: String,
     @SerializedName("titulo")
-    val titulo: String
+    @PrimaryKey val titulo: String
 )

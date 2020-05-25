@@ -105,6 +105,11 @@ class Perfil : AppCompatActivity() {
     }
 
     fun btnGuardarClick(view: View) {
+        val intent: Intent = Intent(this, Peliculas::class.java)
+        startActivity(intent)
+    }
 
+    override fun onBackPressed() {
+        //super.onBackPressed()
     }
 }

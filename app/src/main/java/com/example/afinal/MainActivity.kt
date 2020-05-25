@@ -82,6 +82,12 @@ class MainActivity : AppCompatActivity(){
                 Snackbar.make(view, "Bienvenido! Usuario: ${response["Nombre"].toString()}", Snackbar.LENGTH_SHORT).show()
                 Nombre = response["Nombre"].toString()
                 Sexo = response["Sexo"].toString()
+
+                val intent: Intent = Intent(this, Perfil::class.java)
+
+                intent.putExtra("Nombre",Nombre)
+                intent.putExtra("Sexo",Sexo)
+                startActivity(intent)
             },
             Response.ErrorListener { error ->
                 // TODO: Handle error
@@ -91,12 +97,6 @@ class MainActivity : AppCompatActivity(){
 
         // Access the RequestQueue through your singleton class.
         Volley.newRequestQueue(this).add(jsonObjectRequest)
-        val intent: Intent = Intent(this, Perfil::class.java)
-
-        intent.putExtra("Nombre",Nombre)
-        intent.putExtra("Sexo",Sexo)
-        startActivity(intent)
-
     }
 
     fun btnReg(view: View) {
